@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "lectures",
+  "info": {
+    "name": "lecture"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "time": {
+      "type": "datetime",
+      "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "default": 0
+    },
+    "keywords": {
+      "type": "string",
+      "maxLength": 40,
+      "required": false
+    },
+    "imgUrl": {
+      "type": "string"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "lectures"
+    },
+    "platform": {
+      "type": "enumeration",
+      "enum": [
+        "Zoom",
+        "YouTube",
+        "VK",
+        "Instagram",
+        "Skype",
+        "Facebook"
+      ],
+      "required": true
+    },
+    "link": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
